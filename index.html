@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 外贸拓客助手</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">AI</div>
+          <div>
+            <h1>AI 外贸拓客</h1>
+            <p>Lead Discovery & GTM Copilot</p>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-title">导航</div>
+          <button class="nav-item active" data-view="overview">销售概览</button>
+          <button class="nav-item" data-view="discovery">线索发现</button>
+          <button class="nav-item" data-view="workspace">客户工作台</button>
+          <button class="nav-item" data-view="agent">Agent 工坊</button>
+          <button class="nav-item" data-view="settings">配置中心</button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-title">已接入能力</div>
+          <div class="side-tags">
+            <span class="side-tag">客户分析</span>
+            <span class="side-tag">产品匹配</span>
+            <span class="side-tag">模拟问答</span>
+            <span class="side-tag">销售智库</span>
+            <span class="side-tag">PPT 编排</span>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="status-dot"></div>
+          <span id="sidebarStatus">知识库工作流已接入</span>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <div class="eyebrow" id="viewEyebrow">销售工作台</div>
+            <h2 id="viewTitle">AI 外贸拓客助手</h2>
+            <p id="viewDescription">从客户线索、Google 搜索到会前准备与方案跟进，形成一条可执行链路。</p>
+          </div>
+          <div class="topbar-tools">
+            <label class="global-search">
+              <span>⌕</span>
+              <input id="globalLeadSearch" type="text" placeholder="筛选已有线索..." />
+            </label>
+            <button class="ghost-btn" id="openSettingsBtn">Google 配置</button>
+            <button class="primary-btn" id="addSampleLeadBtn">加入示例线索</button>
+          </div>
+        </header>
+
+        <section class="view active" data-view-panel="overview">
+          <div class="hero-grid">
+            <article class="hero-card highlight">
+              <div class="trade-hero-art" aria-hidden="true">
+                <svg viewBox="0 0 720 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="routeGlow" x1="50" y1="0" x2="650" y2="220" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#22D3EE"/>
+                      <stop offset="0.45" stop-color="#60A5FA"/>
+                      <stop offset="1" stop-color="#FBBF24"/>
+                    </linearGradient>
+                    <radialGradient id="nodeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(40)">
+                      <stop stop-color="#22D3EE" stop-opacity="0.85"/>
+                      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <path class="grid-line" d="M40 42H680" />
+                  <path class="grid-line" d="M40 110H680" />
+                  <path class="grid-line" d="M40 178H680" />
+                  <path class="grid-line" d="M120 26V198" />
+                  <path class="grid-line" d="M260 26V198" />
+                  <path class="grid-line" d="M400 26V198" />
+                  <path class="grid-line" d="M540 26V198" />
+
+                  <path
+                    class="route"
+                    d="M90 164 C 180 88, 260 68, 332 114 C 404 160, 470 174, 560 96 C 618 44, 654 58, 670 76"
+                    stroke="url(#routeGlow)"
+                    stroke-width="3.6"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    class="route route-secondary"
+                    d="M120 62 C 210 30, 310 40, 372 80 C 444 126, 520 134, 602 110"
+                    stroke="url(#routeGlow)"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+                  <g class="nodes">
+                    <g transform="translate(90 164)">
+                      <circle r="22" fill="url(#nodeGlow)"/>
+                      <circle r="4.5" fill="#22D3EE"/>
+                    </g>
+                    <g transform="translate(332 114)">
+                      <circle r="22" fill="url(#nodeGlow)"/>
+                      <circle r="4.5" fill="#60A5FA"/>
+                    </g>
+                    <g transform="translate(560 96)">
+                      <circle r="22" fill="url(#nodeGlow)"/>
+                      <circle r="4.5" fill="#FBBF24"/>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="hero-caption">工作链路</div>
+              <h3>从客户线索到成交推进</h3>
+              <p>以“客户输入 → 资料准备 → 产品匹配 → 模拟问答 → 会后沉淀”的知识库流程为骨架，补上真实搜索和线索导入。</p>
+              <div class="workflow-strip" id="workflowStrip"></div>
+            </article>
+
+            <article class="hero-card">
+              <div class="hero-caption">线索状态</div>
+              <div class="metric-grid" id="metricsGrid"></div>
+            </article>
+
+            <article class="hero-card">
+              <div class="hero-caption">可信原则</div>
+              <ul class="plain-list">
+                <li>先识别客户和场景，再输出结论</li>
+                <li>待确认项必须显式暴露</li>
+                <li>产品推荐回到场景，不做功能堆砌</li>
+                <li>搜索结果支持导入为线索继续加工</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="overview-grid">
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>重点线索</h3>
+                  <p>优先推进高潜客户</p>
+                </div>
+              </div>
+              <div class="lead-list compact" id="overviewLeadList"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>本周动作建议</h3>
+                  <p>按 P0 / P1 / P2 切分销售动作</p>
+                </div>
+              </div>
+              <div class="action-stack" id="weeklyActions"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view-panel="discovery">
+          <div class="two-column">
+            <article class="panel discovery-panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Google 线索搜索</h3>
+                  <p>面向 GitHub Pages 的前端接入，支持用 Google Programmable Search 查询客户线索。</p>
+                </div>
+                <span class="panel-badge" id="googleStatusBadge">未配置</span>
+              </div>
+
+              <form class="search-form" id="discoveryForm">
+                <div class="form-grid">
+                  <label>
+                    <span>公司 / 关键词</span>
+                    <input id="companyInput" type="text" placeholder="例如 textile importer、pet supplies wholesaler" />
+                  </label>
+                  <label>
+                    <span>国家 / 地区</span>
+                    <input id="countryInput" type="text" placeholder="例如 Germany、UAE、Spain" />
+                  </label>
+                  <label>
+                    <span>行业</span>
+                    <input id="industryInput" type="text" placeholder="例如 textile、auto parts、wellness" />
+                  </label>
+                  <label>
+                    <span>站点限定</span>
+                    <input id="siteInput" type="text" placeholder="例如 linkedin.com company 或不填" />
+                  </label>
+                </div>
+
+                <div class="prompt-actions">
+                  <button class="primary-btn" type="submit">搜索线索</button>
+                  <button class="ghost-btn" type="button" id="fillSearchExampleBtn">填入示例</button>
+                  <button class="ghost-btn" type="button" id="useDemoResultsBtn">加载演示结果</button>
+                  <button class="ghost-btn" type="button" id="openGoogleBtn">在 Google 打开</button>
+                </div>
+              </form>
+
+              <div class="callout-info">
+                <strong>接入说明</strong>
+                <p>
+                  当前支持 Google Programmable Search JSON API 模式。你只要在“配置中心”填入 `API Key` 和 `Search Engine ID (cx)`，就能直接在网页里搜索并导入客户线索。
+                </p>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>搜索结果</h3>
+                  <p id="discoverySummary">配置 Google 后可获取真实结果；也支持演示结果联调。</p>
+                </div>
+              </div>
+              <div class="result-stack" id="searchResults"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view-panel="workspace">
+          <div class="workspace-grid">
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>线索池</h3>
+                  <p>支持从 Google 搜索结果导入后继续加工</p>
+                </div>
+                <span class="panel-badge" id="leadPoolCount">0 条</span>
+              </div>
+              <div class="lead-list" id="workspaceLeadList"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3 id="detailName">客户详情</h3>
+                  <p id="detailSubtitle">选择线索查看完整信息</p>
+                </div>
+                <div class="header-actions">
+                  <button class="ghost-btn small" id="markContactedBtn">标记已联系</button>
+                  <button class="success-btn small" id="followBtn">加入重点跟进</button>
+                </div>
+              </div>
+
+              <div class="detail-summary" id="detailSummary"></div>
+
+              <div class="tab-strip">
+                <button class="tab-btn active" data-detail-tab="overview">客户画像</button>
+                <button class="tab-btn" data-detail-tab="solution">方案建议</button>
+                <button class="tab-btn" data-detail-tab="playbook">推进脚本</button>
+              </div>
+
+              <div class="tab-panel active" data-detail-panel="overview">
+                <div class="detail-grid">
+                  <section class="detail-card">
+                    <h4>客户信息</h4>
+                    <dl class="info-list" id="profileInfo"></dl>
+                  </section>
+                  <section class="detail-card">
+                    <h4>可能痛点</h4>
+                    <ul class="bullet-list" id="painPoints"></ul>
+                  </section>
+                </div>
+              </div>
+
+              <div class="tab-panel" data-detail-panel="solution">
+                <div class="detail-grid">
+                  <section class="detail-card">
+                    <h4>推荐产品组合</h4>
+                    <div class="tag-cluster" id="productTags"></div>
+                    <div class="text-block" id="productReason"></div>
+                  </section>
+                  <section class="detail-card">
+                    <h4>待确认项</h4>
+                    <div class="checklist" id="confirmList"></div>
+                  </section>
+                </div>
+              </div>
+
+              <div class="tab-panel" data-detail-panel="playbook">
+                <div class="detail-grid one-column">
+                  <section class="detail-card">
+                    <h4>拜访提纲</h4>
+                    <ol class="number-list" id="visitOutline"></ol>
+                  </section>
+                  <section class="detail-card">
+                    <h4>跟进动作</h4>
+                    <div class="action-stack" id="followUpActions"></div>
+                  </section>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view-panel="agent">
+          <div class="two-column narrow-right">
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Agent 技能切换</h3>
+                  <p>每个模块都能切换，并且会联动当前客户与场景。</p>
+                </div>
+              </div>
+              <div class="skill-toolbar" id="skillToolbar"></div>
+              <div class="scenario-switcher" id="scenarioSwitcher"></div>
+
+              <div class="assistant-window">
+                <div class="assistant-meta">
+                  <div>
+                    <span class="meta-label">当前技能</span>
+                    <strong id="activeSkillLabel">customer-analysis</strong>
+                  </div>
+                  <div>
+                    <span class="meta-label">当前场景</span>
+                    <strong id="activeScenarioLabel">客户拜访前客户分析</strong>
+                  </div>
+                </div>
+
+                <div class="prompt-box">
+                  <label for="promptInput">销售输入</label>
+                  <textarea id="promptInput" rows="5" placeholder="输入销售诉求或客户拜访背景"></textarea>
+                  <div class="prompt-actions">
+                    <button class="ghost-btn small" id="fillPromptBtn">填入示例</button>
+                    <button class="primary-btn small" id="generateBtn">生成建议</button>
+                  </div>
+                </div>
+
+                <div class="assistant-output" id="assistantOutput"></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>技能定义</h3>
+                  <p>和知识库的 5 个能力一一对应</p>
+                </div>
+              </div>
+              <div class="definition-stack" id="skillDefinitions"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view-panel="settings">
+          <div class="two-column">
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Google 搜索配置</h3>
+                  <p>配置后可在“线索发现”页直接搜索真实客户线索。</p>
+                </div>
+              </div>
+
+              <form class="settings-form" id="settingsForm">
+                <label>
+                  <span>Google API Key</span>
+                  <input id="googleApiKeyInput" type="password" placeholder="输入 Google Custom Search API Key" />
+                </label>
+                <label>
+                  <span>Search Engine ID（cx）</span>
+                  <input id="googleCxInput" type="text" placeholder="输入 Programmable Search Engine 的 cx" />
+                </label>
+                <div class="prompt-actions">
+                  <button class="primary-btn" type="submit">保存配置</button>
+                  <button class="ghost-btn" type="button" id="clearSettingsBtn">清空配置</button>
+                </div>
+              </form>
+
+              <div class="callout-info">
+                <strong>部署建议</strong>
+                <p>如果你部署到 GitHub Pages，建议把 API Key 做来源限制，只允许你的 Pages 域名使用。</p>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>GitHub 发布准备</h3>
+                  <p>这是一套标准静态站结构，适合直接发 GitHub Pages。</p>
+                </div>
+              </div>
+              <ul class="plain-list">
+                <li>无需 Node 构建，仓库可直接托管静态文件</li>
+                <li>支持本地 Git 初始化、提交、推送到远端</li>
+                <li>若你提供 GitHub 仓库 URL，我可以继续帮你完成 push</li>
+              </ul>
+              <div class="status-board" id="configStatusBoard"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

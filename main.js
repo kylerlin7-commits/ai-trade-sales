@@ -1,4 +1,4 @@
-const STORAGE_KEYS = {
+ const STORAGE_KEYS = {
   googleApiKey: "lead_hunter_google_api_key",
   googleCx: "lead_hunter_google_cx",
 };
